@@ -2,8 +2,10 @@
   hosts: localhost
   gather_facts: false
   connection: local
+  vars:
+    state: false
   roles:
   - role: ansible.kubernetes-modules
     install_python_requirements: no
-  - role: deprovision-hello-world-apb
+  - role: hello-world-apb-openshift
     playbook_debug: false

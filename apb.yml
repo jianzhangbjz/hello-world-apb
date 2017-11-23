@@ -1,19 +1,27 @@
 version: 1.0
-name: hello-world-apb
-description: deploys hello-world web application
+name: hello-test-apb
+description: deploys hello-test web application
 bindable: False
 async: optional
 metadata:
-  displayName: Hello World (APB)
-  longDescription: A sample APB which deploys a containerized Hello World web application
+  displayName: Hello Test (APB)
+  longDescription: A sample APB which deploys a containerized Hello World web application can fails on Provision/Deprovision
   dependencies: ['docker.io/ansibleplaybookbundle/hello-world:latest']
   providerDisplayName: "Red Hat, Inc."
 plans:
-  - name: default
-    description: A sample APB which deploys Hello World
+  - name: failprovision
+    description: can fail on provision
     free: True
     metadata:
-      displayName: Default
+      displayName: failprovision
+      longDescription: This plan deploys a Python web application displaying Hello World
+      cost: $0.00
+    parameters: []
+  - name: faildeprovision
+    description: can fail on deprovision
+    free: True
+    metadata:
+      displayName: faildeprovision
       longDescription: This plan deploys a Python web application displaying Hello World
       cost: $0.00
     parameters: []
